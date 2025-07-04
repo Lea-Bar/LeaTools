@@ -18,7 +18,11 @@ public abstract class AbstractItemBuilder<T extends ItemMeta> {
     }
 
     protected AbstractItemBuilder(Material material, int amount, Class<T> metaClass) {
-        this.item = new ItemStack(material);
+        this(new ItemStack(material, amount), metaClass);
+    }
+
+    protected AbstractItemBuilder(ItemStack item, Class<T> metaClass) {
+        this.item = item;
         this.meta = metaClass.cast(item.getItemMeta());
     }
 
@@ -48,6 +52,4 @@ public abstract class AbstractItemBuilder<T extends ItemMeta> {
     }
 
     public abstract Map<String, Object> serialize();
-
-    public abstract void deserialize(Map<String, Object> data);
 }
