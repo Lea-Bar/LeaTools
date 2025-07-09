@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class ItemBuilder extends AbstractItemBuilder<ItemMeta> {
+public class ItemBuilder extends AbstractItemBuilder<ItemMeta, ItemBuilder> {
     public ItemBuilder(Material material) {
         super(material, ItemMeta.class);
     }

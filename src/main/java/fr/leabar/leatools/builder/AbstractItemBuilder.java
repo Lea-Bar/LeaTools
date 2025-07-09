@@ -9,7 +9,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.util.Arrays;
 import java.util.Map;
 
-public abstract class AbstractItemBuilder<T extends ItemMeta> {
+public abstract class AbstractItemBuilder<T extends ItemMeta, U extends AbstractItemBuilder<T,U>> {
     protected final ItemStack item;
     protected final T meta;
 
@@ -26,24 +26,24 @@ public abstract class AbstractItemBuilder<T extends ItemMeta> {
         this.meta = metaClass.cast(item.getItemMeta());
     }
 
-    public AbstractItemBuilder<T> name(String name) {
+    public U name(String name) {
         meta.setDisplayName(name);
-        return this;
+        return (U) this;
     }
 
-    public AbstractItemBuilder<T> lore(String... lines) {
+    public U lore(String... lines) {
         meta.setLore(Arrays.asList(lines));
-        return this;
+        return (U) this;
     }
 
-    public AbstractItemBuilder<T> enchant(Enchantment enc, int level) {
+    public U enchant(Enchantment enc, int level) {
         meta.addEnchant(enc, level, true);
-        return this;
+        return (U) this;
     }
 
-    public AbstractItemBuilder<T> flags(ItemFlag... flags) {
+    public U flags(ItemFlag... flags) {
         meta.addItemFlags(flags);
-        return this;
+        return (U) this;
     }
 
     public ItemStack build(){

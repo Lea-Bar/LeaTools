@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class BannerBuilder extends AbstractItemBuilder<BannerMeta> {
+public class BannerBuilder extends AbstractItemBuilder<BannerMeta, BannerBuilder> {
 
     public BannerBuilder() {
         this(DyeColor.WHITE);

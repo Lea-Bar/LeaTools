@@ -85,7 +85,7 @@ public class TitleAPI {
     }
 
     public static void sendTitleToAll(Collection<? extends Player> players, String title, String subtitle) {
-        sendTitleToAll(players, title, subtitle, 10, 70, 20);
+        sendTitleToAll(players, title, subtitle, 10, 60, 20);
     }
 
     public static void sendActionBarToAll(Collection<? extends Player> players, String message) {
